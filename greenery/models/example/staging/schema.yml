@@ -1,0 +1,187 @@
+version: 2
+
+models:
+  - name: stg_addresses
+    description: "contains addresses"
+    columns:
+      - name: address_id
+        description: "UUID for each unique address on platform"
+        tests:
+          - unique
+          - not_null
+      - name: address
+        description: "The first few lines of the address"
+        tests:
+      - name: zipcode
+        description: "The zipcode of the address"
+        tests:
+      - name: state
+        description: "state this delivery address is based in"
+        tests:
+      - name: country
+        description: "country this delivery address is based in"
+        tests:
+
+
+models:
+  - name: stg_users
+    description: "contains users"
+    columns:
+      - name: user_id
+        description: "UUID for each unique user on platform"
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "first name of the user"
+        tests:
+      - name: last_name
+        description: "last name of the user"
+        tests:
+      - name: email
+        description: "email address of the user"
+        tests:
+      - name: phone_number
+        description: "phone number of the user"
+        tests:
+      - name: created_at
+        description: "timestamp the user was created"
+        tests:
+      - name: updated_at
+        description: "timestamp the user was last updated"
+        tests:
+      - name: address_id
+        description: "default delivery address for the user"
+        tests:
+
+models:
+  - name: promos
+    description: "contains promos"
+    columns:
+      - name: promo_id
+        description: "Each unique promocode on platform"
+        tests:
+          - unique
+          - not_null
+      - name: discount
+        description: "Absolute dollar amount that is given off with the code"
+        tests:
+      - name: status
+        description: "Is the promo code active or disabled"
+        tests:
+
+
+models:
+  - name: stg_products
+    description: "contains addresses"
+    columns:
+      - name: product_id
+        description: "UUID for each unique product on platform"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "Name of the product"
+        tests:
+      - name: price
+        description: "Price of the product"
+        tests:
+      - name: inventory
+        description: "Amount of the inventory we have for this product"
+        tests:
+
+
+models:
+  - name: stg_orders
+    description: "contains orders"
+    columns:
+      - name: order_id
+        description: "UUID for each unique order on platform"
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "UserId of the user that placed this order"
+        tests:
+      - name: promo_id
+        description: "PromoId if any was used in the order"
+        tests:
+      - name: address_id
+        description: "Delivery address for this order"
+        tests:
+      - name: created_at
+        description: "Dollar about of the items in the order"
+        tests:
+      - name:  order_cost
+        description: "Dollar about of the items in the order"
+        tests:
+      - name: shipping_cost
+        description: "Cost of shipping for the order"
+        tests:
+      - name: order_total
+        description: "PromoId if any was used in the order"
+        tests:
+      - name: tracking_id
+        description: "Tracking number for the order/package"
+        tests:
+      - name:  shipping_service
+        description: "Company that was used for shipping"
+        tests:
+      - name: estimated_delivery_at
+        description: "Estimated date of delivery"
+        tests:
+      - name:  delivered_at
+        description: "Actual timestamp of delivery"
+        tests:
+      - name: status
+        description: "Status of the order"
+        tests:
+
+
+models:
+  - name: stg_order_items
+    description: "contains order items"
+    columns:
+      - name: order_id
+        description: "OrderId of this order"
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "ProductId of a single item in this order"
+        tests:
+      - name: quantity
+        description: "Number of units of the product in this order"
+        tests:
+
+
+models:
+  - name: stg_events
+    description: "contains events"
+    columns:
+      - name: event_id
+        description: "UUID of each unique event on the platform"
+        tests:
+          - unique
+          - not_null
+      - name: session_id
+        description: "UUID of each browsing session on the platform which can contain many events"
+        tests:
+      - name: user_id
+        description: "UUID of the user that this event is associated with"
+        tests:
+      - name: page_url
+        description: "URL that the event happened on"
+        tests:
+      - name: created_at
+        description: "Timestamp of the event"
+        tests:
+      - name: event_type
+        description: "Type of event"
+        tests:
+      - name: order_id
+        description: "If the event is specific to an order (mostly used for checkout)"
+        tests:
+      - name: product_id
+        description: "If the event is specific to a product"
+        tests:
