@@ -17,4 +17,5 @@ SELECT
   , shipping_service
   , estimated_delivery_at
   , delivered_at
+  , status
 FROM {{ source('pg', 'orders') }}
