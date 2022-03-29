@@ -16,3 +16,4 @@ from purchase_events a, total_events b
 
 What is our conversion rate by product?
 
+I couldn't figure this one out :(

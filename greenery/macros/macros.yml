@@ -1,0 +1,14 @@
+  - name: is_it_cactus
+    description: tells you if the product is a cactus or not
+    docs:
+      show: true
+    arguments:
+      - name: name
+        description: name of the product you want to apply the cactus macro to
+  - name: grant_role
+    description: grant access to tables in schema
+    docs:
+      show: true
+    arguments:
+      - name: role
+        description: role to grant select and usage access to
